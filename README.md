@@ -2,8 +2,6 @@
 web app untuk memberikan referensi proyek dan membuatkan timeline sederhana untuk pengerjaan proyek  
 
 Kelompok ManageIT  
-Ketua Kelompok: Angelica Callysta Viera   
+Ketua Kelompok: Angelica Callysta Viera - 21/474719/TK/52377   
 Anggota 1: ANDI – 19/000001/TK/00001  
 Anggota 2: Partahi Bonaruli Sitorus - 21/482615/TK/53324  
-Anggota 3: ANDI – 19/000003/TK/00003  
-Anggota 4: ANDI – 19/000004/TK/00004 
