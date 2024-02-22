@@ -1,7 +1,7 @@
 ## ManageIT Team
-Angelica Callysta Viera - 21/474719/TK/52377
-Rico Frijaya
-Partahi Bonaruli Sitorus - 21/482615/TK/53324
+1. Angelica Callysta Viera - 21/474719/TK/52377
+2. Rico Frijaya
+3. Partahi Bonaruli Sitorus - 21/482615/TK/53324
 # "Project Senior Project TI"
 Departemen Teknik Elektro dan Teknologi Informasi, Fakultas Teknik, Universitas Gadjah Mada
 
