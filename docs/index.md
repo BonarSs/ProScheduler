@@ -41,7 +41,7 @@ Pengguna potensial dari produk ini adalah mahasiswa dan team - team start up kec
 | FR-3   | User dapat membuat deadline pada tiap Task dan dapat mengatur pengingat untuk tiap task |
 
 ## Entity Relationship Diagram
-![ERD](assets/UseCase%20Diagram%20Senpro.drawio.png)
+![ERD](assets/ERD%20Senpro.drawio.png)
 
 ## Low-Fidelity WireFrames
 
