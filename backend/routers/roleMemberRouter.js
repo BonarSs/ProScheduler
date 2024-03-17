@@ -1,6 +1,10 @@
 const express = require('express')
 const router = express.Router()
 const roleMemberModel = require('../models/roleMemberModel')
+const {VerifyJWT} = require('../middleware/auth')
+
+//Add middleware
+router.use(VerifyJWT)
 
 //Basic CRUD Endpoints
 router.post('/CRUD', async (req,res) => {

@@ -5,6 +5,8 @@ const express = require('express')
 const app = express()
 app.use(express.json())
 const mongoose = require('mongoose')
+const cookieParser = require('cookie-parser')
+const cors = require('cors')
 
 //Database Connection
 
@@ -22,9 +24,10 @@ const statusRouter = require('./routers/statusRouter')
 const roleMemberRouter = require('./routers/roleMemberRouter')
 
 // Add Middleware Cors
-const cors = require('cors')
 app.options('*', cors())
 app.use(cors())
+app.use(cookieParser())
+
 
 //Routing
 app.use('/task', taskRouter)

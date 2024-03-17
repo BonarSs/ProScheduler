@@ -2,6 +2,11 @@ const express = require('express')
 const router = express.Router()
 const userModel = require('../models/userModel')
 const {GenerateJWT, VerifyJWT} = require('../middleware/auth')
+const bcrypt = require('bcryptjs/dist/bcrypt')
+
+//Helper variable
+const cookieDuration = 6 * 60 * 60 * 1000
+
 
 //Basic CRUD Endpoints
 router.post('/CRUD', async (req,res) => {
@@ -98,7 +103,7 @@ router.post('/SignUp', async (req,res) => {
         const savedUser = await newUser.save()
         const token = GenerateJWT(savedUser)
 
-        return res.cookie('token', token).json({
+        return res.cookie('token', token,{maxAge: cookieDuration}).json({
             nama : savedUser.nama,
             email: savedUser.email,
             id: savedUser._id
@@ -115,10 +120,10 @@ router.post('/LogIn', async (req,res) => {
     try {
         const {email,password} = req.body
         const user = await userModel.findOne({email: email})
-        
-        if(user && user.comparepassword(password)){
+   
+        if(user && await user.comparePassword(password)){
             const token = GenerateJWT(user)
-            return res.cookie('token', token).json({
+            return res.cookie('token', token, {maxAge: cookieDuration}).json({
                 nama: user.nama,
                 email: user.email,
                 id: user._id
