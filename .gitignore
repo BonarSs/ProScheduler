@@ -1,0 +1,5 @@
+# Abaikan file .env di dalam folder backend
+backend/.env
+
+# Abaikan folder node_modules di dalam folder backend
+backend/node_modules/
