@@ -2,7 +2,9 @@ const express = require('express')
 const mongoose = require('mongoose')
 const router = express.Router()
 const projectModel = require('../models/projectModel')
-
+const userModel = require('../models/userModel')
+const {VerifyJWT} = require('../middleware/auth')
+const { verify } = require('jsonwebtoken')
 
 // Basic CRUD Endpoints
 router.post('/CRUD', async (req,res) => {
@@ -22,7 +24,7 @@ router.post('/CRUD', async (req,res) => {
 
 router.get('/CRUD', async (req,res) => {
     try {
-        const results = await projectModel.find().populate("task_id")
+        const results = await projectModel.find().populate("task_id collaborators")
         if(!results || results.length === 0){
             return res.json({
                 message: "tidak ada data ditemukan"
@@ -79,6 +81,55 @@ router.delete('/CRUD/:id', async (req,res) => {
         console.error(error.message)
         return res.status(500).json({
             message: `Error while deleting Data => ${error.message}`
+        })
+    }
+})
+
+//Endpoint to retreive single project document
+router.get('/:id_project',VerifyJWT, async (req, res) => {
+    try {
+        const {id_project} = req.params;
+        const user = req.user
+
+        const ProjectRelated = await projectModel.findOne({ _id : id_project})
+
+        const userIsCollaborator = await user.project.includes(id_project)
+        const projectIsUsersProject = await ProjectRelated.collaborators.includes(user._id)
+        
+        if(!userIsCollaborator || !projectIsUsersProject){
+            throw new Error("User tidak memiliki akses ke project terkait")
+            return
+        }
+
+        return res.status(200).json(ProjectRelated)
+    } catch (error) {
+        console.error(error.message)
+        return res.status(500).json({
+            message: error.message
+        })
+    }
+} )
+
+//Endpoint to Create single project document
+router.post('/create',VerifyJWT, async (req,res) => {
+    try {
+        const user = req.user;
+        let input_value = req.body;
+
+        input_value.collaborators = [user._id]
+        
+        const new_document = new projectModel(input_value)
+        const new_docSaved = await new_document.save()
+        
+        await user.project.push(new_docSaved._id)
+        
+        await userModel.findOneAndUpdate({_id : user._id}, {project : user.project})
+
+        return res.status(201).json(new_docSaved)
+    } catch (error) {
+        console.error(error.message)
+        return res.status(500).json({
+            message: error.message
         })
     }
 })

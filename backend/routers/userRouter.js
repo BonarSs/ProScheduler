@@ -26,7 +26,7 @@ router.post('/CRUD', async (req,res) => {
 
 router.get('/CRUD', async (req,res) => {
     try {
-        const results = await userModel.find()
+        const results = await userModel.find().populate("project")
         if(!results || results.length === 0){
             return res.json({
                 message: "tidak ada data ditemukan"
