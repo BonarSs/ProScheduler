@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from "../Navbar";
 
-const LoginForm = () => {
+const RegisterForm = () => {
   return (
     <div>
       <Navbar />
@@ -39,4 +39,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default RegisterForm;
