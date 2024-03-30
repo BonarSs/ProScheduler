@@ -4,7 +4,7 @@ const taskModel = require('../models/taskModel')
 
 
 // Basic CRUD Endpoints
-router.post('/', async (req,res) => {
+router.post('/CRUD', async (req,res) => {
     try {
         const input_value = req.body
         const new_document = new taskModel(input_value)
@@ -16,7 +16,7 @@ router.post('/', async (req,res) => {
     }
 })
 
-router.get('/', async (req,res) => {
+router.get('/CRUD', async (req,res) => {
     try {
         const results = await taskModel.find()
         if(!results || results.length === 0){

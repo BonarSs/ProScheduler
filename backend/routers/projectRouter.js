@@ -4,7 +4,6 @@ const router = express.Router()
 const projectModel = require('../models/projectModel')
 const userModel = require('../models/userModel')
 const {VerifyJWT} = require('../middleware/auth')
-const { verify } = require('jsonwebtoken')
 
 // Basic CRUD Endpoints
 router.post('/CRUD', async (req,res) => {
