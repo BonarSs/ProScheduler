@@ -23,7 +23,7 @@ export default function SideBar() {
             <div className="h-[70px]"></div>
             <div className="flex justify-between flex-1 flex-col px-4 pt-8 pb-4">
                 <div className="flex flex-col gap-y-2">
-                    <div className="flex items-center pl-1 gap-4">
+                    <div className="flex items-center pl-1 gap-4 hover:bg-slate-400">
                         <IoRocketOutline className="h-full w-10"
                             onClick={() => {setToggleCollapse(!toggleCollapse)}}/>
                         <span className={classNames(" text-lg font-medium text-black",
@@ -38,9 +38,9 @@ export default function SideBar() {
 
                         </div> */}
 
-                    <div className="flex items-center pl-1 gap-4">
-                        <BiTask className="h-full w-10"
-                            onClick={() => {setToggleCollapse(!toggleCollapse)}}/>
+                    <div className="flex items-center pl-1 gap-4 hover:bg-slate-400"
+                    onClick={() => {setToggleCollapse(!toggleCollapse)}}>
+                        <BiTask className="h-full w-10"/>
                         <span className={classNames(" text-lg font-medium text-black",
                         {
                             hidden: !toggleCollapse
@@ -56,7 +56,7 @@ export default function SideBar() {
 
 
                 <div className="flex flex-col gap-y-4">
-                    <div className="flex items-center pl-1 gap-4">
+                    <div className="flex items-center pl-1 gap-4 hover:bg-slate-400">
                         <RxGear className="h-full w-10"
                             onClick={() => {setToggleCollapse(!toggleCollapse)}}/>
                         <span className={classNames(" text-lg font-medium text-black",
@@ -66,7 +66,7 @@ export default function SideBar() {
                             Settings
                         </span>
                     </div>
-                    <div className="flex items-center pl-1 gap-4">
+                    <div className="flex items-center pl-1 gap-4 hover:bg-slate-400">
                         <FaRegEdit className="translate-x-0.5 h-full w-10"
                             onClick={() => {setToggleCollapse(!toggleCollapse)}}/>
                         <span className={classNames(" text-lg font-medium text-black",
@@ -76,7 +76,7 @@ export default function SideBar() {
                             Create New
                         </span>                        
                     </div>
-                    <div className="flex items-center pl-1 gap-4">
+                    <div className="flex items-center pl-1 gap-4 hover:bg-slate-400">
                         <BsTrash className="h-full w-10"
                             onClick={() => {setToggleCollapse(!toggleCollapse)}}/>
                         <span className={classNames(" text-lg font-medium text-black",
