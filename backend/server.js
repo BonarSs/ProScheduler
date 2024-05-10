@@ -24,8 +24,11 @@ const statusRouter = require('./routers/statusRouter')
 const roleMemberRouter = require('./routers/roleMemberRouter')
 
 // Add Middleware Cors
-app.options('*', cors())
-app.use(cors())
+// app.options('*', cors())
+app.use(cors({
+    origin: 'http://localhost:3001',
+    credentials: true
+  }));  
 app.use(cookieParser())
 
 
