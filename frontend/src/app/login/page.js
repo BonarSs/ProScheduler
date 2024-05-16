@@ -24,7 +24,7 @@ const LoginForm = () => {
             </div>
           </div>
           <button type="submit" className="text-white bg-violet-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm block w-80 mx-auto py-2.5 text-center" style={{ backgroundColor: '#48398F' }}>Log in</button>
-          <p className='text-center mt-2 text-sm'>Don’t have an account?<a href="#" className="text-blue-700 hover:underline"> Register Now</a></p>
+          <p className='text-center mt-2 text-sm'>Don’t have an account?<a href="/register" className="text-blue-700 hover:underline"> Register Now</a></p>
         </form>
       </div>
     </div>
