@@ -1,8 +1,6 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 
-const Navbar = () => {
+const Navbar_landingpage = () => {
   return (
     <nav className="bg-white fixed w-full z-20 top-0 start-0 border-b border-gray-200 shadow-lg">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
@@ -10,9 +8,13 @@ const Navbar = () => {
           <img src="/images/logo.png" alt="Company Logo" className="h-12" />
         </a>
         <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-          {/* Tombol Logout */}
-          <a href="/" className="text-violet-700">
-            <img src="/images/icon.png" alt="logout" className="w-5 h-5" />
+          {/* Link Login */}
+          <a href="/login" className="bg-gray-300 hover:bg-gray-400 py-2 px-2 text-sm rounded-lg mr-3">
+            Log in
+          </a>
+          {/* Link Register */}
+          <a href="/register" className="bg-violet-800 hover:bg-purple-700 text-white text-sm py-2 px-2 rounded-lg" >
+            Sign up
           </a>
         </div>
         {/* Hapus bagian menu toggle (hamburger menu) */}
@@ -34,4 +36,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbar_landingpage;
