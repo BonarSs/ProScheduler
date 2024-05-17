@@ -6,6 +6,7 @@ const Navbar_landingpage = () => {
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
         <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <img src="/images/logo.png" alt="Company Logo" className="h-12" />
+          <span className="text-xl font-semibold text-gray-900">ProScheduler</span>
         </a>
         <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           {/* Link Login */}
