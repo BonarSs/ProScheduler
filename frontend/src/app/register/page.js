@@ -32,7 +32,7 @@ const RegisterForm = () => {
             </div>
           </div> */}
           <button type="submit" className="mt-6 text-white bg-violet-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm block w-80 mx-auto py-2.5 text-center" style={{ backgroundColor: '#48398F' }}>Create</button>
-          <p className='text-center mt-2 text-sm'>Already have account?<a href="#" className="text-blue-700 hover:underline"> Login</a></p>
+          <p className='text-center mt-2 text-sm'>Already have account?<a href="/login" className="text-blue-700 hover:underline"> Login</a></p>
         </form>
       </div>
     </div>

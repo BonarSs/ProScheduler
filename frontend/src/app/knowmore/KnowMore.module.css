@@ -1,0 +1,19 @@
+.pinkBackground {
+    background: rgb(247, 215, 255);
+    background: linear-gradient(176deg, rgba(247, 215, 255, 1) 35%, rgba(255, 68, 236, 1) 78%);
+  }
+  
+
+  .blueBackground{
+    background: rgb(121,231,255);
+background: linear-gradient(176deg, rgba(121,231,255,1) 35%, rgba(42,128,240,1) 78%);
+  }
+
+  .purpleBackground{
+    background: rgb(210,138,254);
+background: linear-gradient(180deg, rgba(210,138,254,0.6306897759103641) 35%, rgba(115,0,230,0.6362920168067228) 78%);
+  }
+
+  .bodyBackground {
+    background: linear-gradient(to bottom, #ffffff, #ff99cc) !important;
+  }
