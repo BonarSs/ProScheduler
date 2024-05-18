@@ -4,6 +4,7 @@ const router = express.Router()
 const projectModel = require('../models/projectModel')
 const userModel = require('../models/userModel')
 const {VerifyJWT} = require('../middleware/auth')
+const { verify } = require('jsonwebtoken')
 
 // Basic CRUD Endpoints
 router.post('/CRUD', async (req,res) => {
@@ -80,6 +81,23 @@ router.delete('/CRUD/:id', async (req,res) => {
         console.error(error.message)
         return res.status(500).json({
             message: `Error while deleting Data => ${error.message}`
+        })
+    }
+})
+
+//Endpoit to retreive all someone's projects
+router.get('/', VerifyJWT, async (req, res) => {
+    try {
+        const user_email = req.user.email
+        const projects = await userModel.findOne({email : user_email}).populate("project")
+        const returned_data = projects.project.map(item => ({project_name : item.project_name, _id : item._id}))
+
+        return res.status(200).json(returned_data)
+
+    } catch (error) {
+        console.error(error.message)
+        return res.status(500).json({
+            message: error.message
         })
     }
 })
