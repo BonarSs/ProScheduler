@@ -25,7 +25,7 @@ const Navbar_landingpage = () => {
               <a href="/" className="block py-2 px-3 text-blue-700 bg-transparent md:bg-transparent md:text-blue-700 md:p-0 border-b-2 border-blue-700" aria-current="page">Home</a>
             </li>
             <li>
-              <a href="#" className="block py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">My Project</a>
+              <a href="/home" className="block py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">My Project</a>
             </li>
             <li>
               <a href="#" className="block py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">Profile</a>

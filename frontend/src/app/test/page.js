@@ -1,9 +1,9 @@
 "use client";
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 export default function LoginRegisterPage() {
   const [isRegistering, setIsRegistering] = useState(false);
+  
   const [formData, setFormData] = useState({
     email: '',
     password: ''

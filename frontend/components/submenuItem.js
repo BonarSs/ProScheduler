@@ -2,13 +2,14 @@ import { BiChevronRight } from "react-icons/bi";
 
 
 const SubMenuItem = (props) =>{
+    
 
     return(
         <>
-        <div className="flex flex-row items-center gap-1 font-normal ">
+        <span className="flex flex-row  gap-1 font-normal px-2 rounded-md hover:bg-violet-500" onClick={props.onClick} >
             <BiChevronRight className="h-full w-max-[20px]"/>
             {props.text}
-        </div>
+        </span>
         </>
     )
 }

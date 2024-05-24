@@ -1,8 +1,25 @@
+"use client"
+import axios from 'axios';
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { useRouter } from 'next/navigation';
 
 const Navbar = () => {
+  const router = useRouter();
+
+  const handleLogout =  async (e) => {
+    e.preventDefault()
+    try {
+      const response =  await axios.post('http://localhost:3000/user/LogOut',{}, {withCredentials: true})
+      console.log(response.data)
+      router.push("/knowmore")
+
+    } catch (error) {
+      console.error(error.response.data.error)
+    }
+  }
+
   return (
     <nav className="bg-white fixed w-full z-20 top-0 start-0 border-b border-gray-200 shadow-lg">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
@@ -11,8 +28,8 @@ const Navbar = () => {
         </a>
         <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           {/* Tombol Logout */}
-          <a href="/" className="text-violet-700">
-            <img src="/images/icon.png" alt="logout" className="w-5 h-5" />
+          <a className="text-violet-700">
+            <img src="/images/icon.png" alt="logout" className="w-5 h-5" onClick={handleLogout} />
           </a>
         </div>
         {/* Hapus bagian menu toggle (hamburger menu) */}

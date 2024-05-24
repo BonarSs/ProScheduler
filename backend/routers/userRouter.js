@@ -39,10 +39,10 @@ router.get('/CRUD', async (req,res) => {
     }
 })
 
-router.patch('/CRUD/:id', async (req,res) => {
+router.patch('/CRUD/:username', async (req,res) => {
     try {
-        const {id} = req.params
-        const dataToUpdate = await userModel.findOne({_id: id})
+        const {username} = req.params
+        const dataToUpdate = await userModel.findOne({username: username})
         const newData = req.body
 
         if(!dataToUpdate){
@@ -104,7 +104,7 @@ router.post('/SignUp', async (req,res) => {
         const token = GenerateJWT(savedUser)
 
         return res.cookie('token', token,{maxAge: cookieDuration}).json({
-            nama : savedUser.nama,
+            username : savedUser.username,
             email: savedUser.email,
             id: savedUser._id
         })
@@ -114,6 +114,11 @@ router.post('/SignUp', async (req,res) => {
     }
 
 })
+// {  
+//     "username": "bonar",
+//     "email": "boaruli42@gmail.com",
+//     "password": "test1"
+// }
 
 //Login Endpoint
 router.post('/LogIn', async (req,res) => {
@@ -124,7 +129,7 @@ router.post('/LogIn', async (req,res) => {
         if(user && await user.comparePassword(password)){
             const token = GenerateJWT(user)
             return res.cookie('token', token, {maxAge: cookieDuration}).json({
-                nama: user.nama,
+                username: user.username,
                 email: user.email,
                 id: user._id
             })
@@ -140,7 +145,7 @@ router.post('/LogIn', async (req,res) => {
 })
 
 //LogOut Endpoint
-router.post('/LogOut', async (req,res) => {
+router.post('/LogOut',VerifyJWT, async (req,res) => {
     try {
         res.clearCookie("token");
         res.status(200).json({ message: "You are now logged out." });

@@ -10,15 +10,18 @@ const projectSchema = mongoose.Schema({
     team_num: Number,
     category_id: Number,
     task_id: [
-        {type: mongoose.Schema.Types.ObjectId,
-        ref: 'task'}
+        {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'task'
+        }
     ],
     collaborators: [
         {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'user'
         }
-    ]
+    ],
+    isCompleted : Boolean
 }, {timestamps: true})
 
 module.exports = mongoose.model ('project', projectSchema)      
