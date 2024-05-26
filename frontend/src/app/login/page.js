@@ -18,7 +18,7 @@ const LoginForm = () => {
         email : '',
         password : ''
       })
-      router.push('/home')
+      router.push('/dashboard')
     } catch (error) {
       console.error(error.response.data)
     }

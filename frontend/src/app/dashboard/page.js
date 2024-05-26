@@ -1,8 +1,21 @@
+"use client"
 import Head from 'next/head';
 import Navbar from '../../../components/navbar';
-import Sidebar from '../../../components/sidebar';
+import SideBar from '../../../components/sidebar';
+import { useState } from 'react';
 
 export default function Dashboard() {
+  const [dataProject, setDataProject] = useState(null);
+    
+    const loadDataProject = async (project_id) => {
+        try {
+            const response = await axios.get(`http://localhost:3000/project/${project_id}`, { withCredentials: true });
+            setDataProject(response.data);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
+  
   return (
     <div className="min-h-screen flex flex-col overflow-hidden bg-[#F5F3FF]">
       <Head>
@@ -11,8 +24,8 @@ export default function Dashboard() {
       
       <Navbar />
       <div className="flex flex-1 mt-16 overflow-hidden"> {/* Tambahkan margin-top untuk memberi ruang di bawah navbar */}
-        <Sidebar />
-        <main className="flex-1 p-4 overflow-auto">
+      <SideBar loadProject={loadDataProject} />
+        <main className="flex-1 p-4 overflow-auto ">
           <div className="flex justify-between items-center mb-4">
             <select className="border p-2 rounded">
               <option>Sprint 1</option>
