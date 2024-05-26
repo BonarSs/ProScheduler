@@ -14,25 +14,19 @@ const RegisterForm = () => {
             <input type="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-80 mx-auto p-1.5" placeholder="Email" required />
           </div>
           <div className="mt-2">
-            <label htmlFor="email" className="text-sm font-medium text-gray-900 block w-80 mx-auto">Username</label>
-            <input type="username" id="username" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-80 mx-auto p-1.5" placeholder="Username" required />
+            <label htmlFor="username" className="text-sm font-medium text-gray-900 block w-80 mx-auto">Username</label>
+            <input type="text" id="username" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-80 mx-auto p-1.5" placeholder="Username" required />
           </div>
           <div className="mt-2">
             <label htmlFor="password" className="text-sm font-medium text-gray-900 block w-80 mx-auto">Password</label>
             <input type="password" id="password" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-80 mx-auto p-1.5" placeholder="Password" required />
           </div>
           <div className="mt-2">
-            <label htmlFor="password_confirmation" className="text-sm font-medium text-gray-900 block w-80 mx-auto">Password confirmation</label>
-            <input type="password_confirmation" id="password_confirmation" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-80 mx-auto p-1.5" placeholder="Password confirmation" required />
+            <label htmlFor="password_confirmation" className="text-sm font-medium text-gray-900 block w-80 mx-auto">Password Confirmation</label>
+            <input type="password" id="password_confirmation" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-80 mx-auto p-1.5" placeholder="Password Confirmation" required />
           </div>
-          {/* <div className="flex justify-between mb-2">
-            <div></div>
-            <div className="text-sm" style={{ width: '160px' }}>
-              <a href="#" className="block mb-2 text-blue-700 hover:underline">Forgot your password?</a>
-            </div>
-          </div> */}
           <button type="submit" className="mt-6 text-white bg-violet-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm block w-80 mx-auto py-2.5 text-center" style={{ backgroundColor: '#48398F' }}>Create</button>
-          <p className='text-center mt-2 text-sm'>Already have account?<a href="/login" className="text-blue-700 hover:underline"> Login</a></p>
+          <p className='text-center mt-2 text-sm'>Already have an account?<a href="/login" className="text-blue-700 hover:underline"> Login</a></p>
         </form>
       </div>
     </div>
