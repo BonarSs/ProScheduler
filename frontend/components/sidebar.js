@@ -33,7 +33,7 @@ export default function SideBar({loadProject}) {
     const wrapperSideBar = classNames(
         "flex flex-col  h-screen bg-white border-r border-gray-200 shadow-2xl",
         {
-            "w-80": toggleCollapse,
+            "w-64": toggleCollapse,
             "w-[90px]": !toggleCollapse
         })
     return (
