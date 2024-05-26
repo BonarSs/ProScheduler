@@ -26,7 +26,7 @@ export default function Dashboard() {
       <Navbar />
       <div className="flex flex-1 mt-16 overflow-hidden"> {/* Tambahkan margin-top untuk memberi ruang di bawah navbar */}
         <SideBar loadProject={loadDataProject} />
-        <main className="flex-1 p-4 overflow-auto ">
+        <main className="flex-1 p-4 overflow-auto">
           <div className="flex justify-between items-center mb-4">
             <select className="border p-2 rounded">
               <option>Sprint 1</option>
@@ -47,23 +47,22 @@ export default function Dashboard() {
             <div className="flex flex-col space-y-2">
               <div className="flex items-center space-x-2 bg-white p-2 rounded-full shadow">
                 <div className="w-9 h-9 bg-purple-500 rounded-full"></div>
-                {/* Hidden text */}
               </div>
               <div className="flex items-center space-x-2 bg-white p-2 rounded-full shadow">
                 <div className="w-9 h-9 bg-blue-500 rounded-full"></div>
-                <span className="text-sm font-semibold opacity-0">UI/UX Designer 1</span> {/* Hidden text */}
+                <span className="text-sm font-semibold opacity-0">UI/UX Designer 1</span>
               </div>
               <div className="flex items-center space-x-2 bg-white p-2 rounded-full shadow">
                 <div className="w-9 h-9 bg-pink-500 rounded-full"></div>
-                <span className="text-sm font-semibold opacity-0">Front end Programmer</span> {/* Hidden text */}
+                <span className="text-sm font-semibold opacity-0">Front end Programmer</span>
               </div>
               <div className="flex items-center space-x-2 bg-white p-2 rounded-full shadow">
                 <div className="w-9 h-9 bg-cyan-500 rounded-full"></div>
-                <span className="text-sm font-semibold opacity-0">UI/UX Designer 2</span> {/* Hidden text */}
+                <span className="text-sm font-semibold opacity-0">UI/UX Designer 2</span>
               </div>
               <div className="flex items-center space-x-2 bg-white p-2 rounded-full shadow">
                 <div className="w-9 h-9 bg-purple-300 rounded-full"></div>
-                <span className="text-sm font-semibold opacity-0">Back end Programmer</span> {/* Hidden text */}
+                <span className="text-sm font-semibold opacity-0">Back end Programmer</span>
               </div>
             </div>
             <div className="flex-1">
@@ -80,22 +79,24 @@ export default function Dashboard() {
           <div className="mb-4 mt-2">
             <div className="text-lg font-semibold mb-4">TASK DISTRIBUTION CARDS</div>
             <div className="grid grid-cols-4 gap-4">
-              <div className="bg-white rounded-lg shadow-lg p-12">
+              <div className="bg-white rounded-lg shadow-lg p-4">
+                <div className="text-sm font-semibold">Event Coordinator</div>
+                <div className="text-xs">Task: Venue Booking</div>
+                <div className="text-xs">Start Date: 2024-04-04</div>
+                <div className="text-xs">End Date: 2024-04-11</div>
               </div>
-              <div className="bg-white rounded-lg shadow-lg p-12">
+              <div className="bg-white rounded-lg shadow-lg p-4"></div>
+              <div className="bg-white rounded-lg shadow-lg p-4"></div>
+              <div className="bg-white rounded-lg shadow-lg p-4"></div>
+              <div className="bg-white rounded-lg shadow-lg p-4">
+                <div className="text-sm font-semibold">Event Coordinator</div>
+                <div className="text-xs">Task: Venue Booking</div>
+                <div className="text-xs">Start Date: 2024-04-04</div>
+                <div className="text-xs">End Date: 2024-04-11</div>
               </div>
-              <div className="bg-white rounded-lg shadow-lg p-12">
-              </div>
-              <div className="bg-white rounded-lg shadow-lg p-12">
-              </div>
-              <div className="bg-white rounded-lg shadow-lg p-12">
-              </div>
-              <div className="bg-white rounded-lg shadow-lg p-12">
-              </div>
-              <div className="bg-white rounded-lg shadow-lg p-12">
-              </div>
-              <div className="bg-white rounded-lg shadow-lg p-12">
-              </div>
+              <div className="bg-white rounded-lg shadow-lg p-4"></div>
+              <div className="bg-white rounded-lg shadow-lg p-4"></div>
+              <div className="bg-white rounded-lg shadow-lg p-4"></div>
             </div>
           </div>
         </main>
