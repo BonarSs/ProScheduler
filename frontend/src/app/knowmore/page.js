@@ -17,28 +17,26 @@ const KnowMore = () => {
           <div className={styles.blueBackground + " px-6 py-8 md:px-10 md:py-10 lg:px-12 lg:py-12 rounded-lg"}>
             <h2 className="text-2xl font-semibold mb-4">First Column</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-              placerat dolor eget odio elementum, eget lobortis magna consequat.
-              In at velit nisl. Vestibulum facilisis diam at tempor placerat.
+            Memberikan rekomendasi penjadwalan dan alokasi tugas berdasarkan analisis AI.
+            Membantu merencanakan jadwal proyek dan alokasi sumber daya dengan efisien.
+            Dapat disesuaikan dengan kebutuhan pengguna dan beradaptasi dengan perubahan proyek.
             </p>
           </div>
           <div className={styles.pinkBackground + " px-6 py-8 md:px-10 md:py-10 lg:px-12 lg:py-12 rounded-lg"}>
             <h2 className="text-2xl font-semibold mb-4">Second Column</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-              placerat dolor eget odio elementum, eget lobortis magna consequat.
-              In at velit nisl. Vestibulum facilisis diam at tempor placerat.
+            Menyediakan platform untuk memantau kinerja proyek secara real-time.
+            Memudahkan akses informasi tentang kemajuan proyek, pencapaian milestone, dan estimasi waktu tersisa.
+            Membantu identifikasi masalah selama pelaksanaan proyek dan pengambilan tindakan yang diperlukan.
             </p>
           </div>
         </div>
         <div className={styles.purpleBackground + " px-6 py-10 mt-10 md:mt-16 lg:mt-20 rounded-lg"}>
           <h2 className="text-2xl font-semibold mb-4">Another Content Column</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis placerat
-            dolor eget odio elementum, eget lobortis magna consequat. In at velit
-            nisl. Vestibulum facilisis diam at tempor placerat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis placerat
-            dolor eget odio elementum, eget lobortis magna consequat. In at velit
-            nisl. Vestibulum facilisis diam at tempor placerat.
+          Mengukur kinerja proyek dan memberikan wawasan untuk meningkatkan efisiensi di masa mendatang.
+          Mengidentifikasi area di mana efisiensi dapat ditingkatkan melalui analisis data.
+          Membantu optimalisasi penggunaan sumber daya, pengurangan biaya, dan peningkatan kesuksesan proyek.
           </p>
         </div>
         <div className="flex justify-center mt-10">
