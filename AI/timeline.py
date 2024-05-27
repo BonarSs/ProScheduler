@@ -2,9 +2,10 @@ from flask import Flask, Blueprint, jsonify, request
 from experta import *
 import json
 from datetime import datetime, timedelta
+from flask_cors import CORS
 
 expert_systems_bp = Blueprint('expert_systems', __name__, url_prefix='/expert-systems')
-
+CORS(expert_systems_bp)
 # Task class definition
 class Task:
     def __init__(self, name, duration, dependencies=[]):
@@ -41,7 +42,7 @@ app_dev_tasks = [
 def generate_timeline():
     data = request.json
     project_category = data['project_category']
-    team_members = data['team_members']
+    team_members = int(data['team_members'])
     start_date = datetime.strptime(data['start_date'], '%Y-%m-%d')
     end_date = datetime.strptime(data['end_date'], '%Y-%m-%d')
 

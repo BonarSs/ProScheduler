@@ -4,6 +4,7 @@ import Navbar from '../../../components/navbar';
 import SideBar from '../../../components/sidebar';
 import { useState } from 'react';
 import axios from 'axios';
+import CreateProjectForm from '../../../components/createproject';
 
 export default function Dashboard() {
   const [dataProject, setDataProject] = useState(null);
@@ -17,6 +18,32 @@ export default function Dashboard() {
     }
   };
 
+
+  const [iscreatingproject, setIsCreatingProject] = useState(false)
+
+  //Toggle createform
+  const Togglecreateform = () =>{
+    setIsCreatingProject(!iscreatingproject)
+  }
+
+
+  //Submit createform
+  const submitcreateform = async (e) =>{
+    e.preventDefault()
+    try {
+      console.log(createProject)
+      const response = await axios.post('http://127.0.0.1:5000/expert-systems/generate-timeline', createProject, {headers: {'Content-Type': 'application/json'}}, {withCredentials: false})
+      setResponseAI(response)
+      console.log(responseAI)
+      setIsCreatingProject(false)
+
+    } catch (error) {
+      console.error(error)
+    } 
+  } 
+
+  //state response AI
+  const [responseAI,setResponseAI] = useState({})
   return (
     <div className="min-h-screen flex flex-col overflow-hidden bg-[#F5F3FF]">
       <Head>
@@ -25,8 +52,10 @@ export default function Dashboard() {
 
       <Navbar />
       <div className="flex flex-1 mt-16 overflow-hidden"> {/* Tambahkan margin-top untuk memberi ruang di bawah navbar */}
-        <SideBar loadProject={loadDataProject} />
-        <main className="flex-1 p-4 overflow-auto ">
+        <SideBar loadProject={loadDataProject} Togglecreateform={Togglecreateform}/>
+        {iscreatingproject ?
+         (<CreateProjectForm/>):
+        (<main className="flex-1 p-4 overflow-auto ">
           <div className="flex justify-between items-center mb-4">
             <select className="border p-2 rounded">
               <option>Sprint 1</option>
@@ -98,7 +127,7 @@ export default function Dashboard() {
               </div>
             </div>
           </div>
-        </main>
+        </main>)}
       </div>
     </div>
   );

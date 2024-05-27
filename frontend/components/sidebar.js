@@ -11,7 +11,7 @@ import axios from "axios";
 
 
 
-export default function SideBar({loadProject}) {
+export default function SideBar({loadProject, Togglecreateform}) {
     
     const [toggleCollapse, setToggleCollapse] = useState(true)
     const [project_data, setProjectData] = useState([])
@@ -85,13 +85,13 @@ export default function SideBar({loadProject}) {
                             Settings
                         </span>
                     </div>
-                    <div className="flex items-center p-2 gap-4 hover:bg-violet-500 rounded-lg">
+                    <div className="flex items-center p-2 gap-4 hover:bg-violet-500 rounded-lg" onClick={() => {Togglecreateform()}}>
                         <FaRegEdit className="translate-x-0.5 h-full w-10"
                             onClick={() => {setToggleCollapse(!toggleCollapse)}}/>
                         <span className={classNames(" text-lg font-medium text-black",
                         {
                             hidden: !toggleCollapse
-                        })}>
+                        })} >
                             Create New
                         </span>                        
                     </div>
