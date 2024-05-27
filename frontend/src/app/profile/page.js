@@ -15,7 +15,7 @@ const ProfileForm = () => {
             <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4">
               <Image src="/images/profile.png" alt="User Avatar" width={80} height={96} />
             </div>
-            <h2 className="text-lg font-semibold text-center mb-4">Bonbon Chocolat</h2>
+            <h2 className="text-lg font-semibold text-center mb-4">Rico</h2>
             <div className="mt-4">
               <label htmlFor="email" className="text-sm font-medium text-gray-900 block w-80 mx-auto">Email</label>
               <input 
@@ -24,7 +24,7 @@ const ProfileForm = () => {
                 name="email" 
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-80 mx-auto p-1.5" 
                 placeholder="Email" 
-                value="bonbon@example.com"
+                value="rico@gmail.com"
               />
             </div>
             <div className="mt-4">
@@ -35,7 +35,7 @@ const ProfileForm = () => {
                 name="username" 
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-80 mx-auto p-1.5" 
                 placeholder="Username" 
-                value="Bonbon Chocolat"
+                value="Rico"
               />
             </div>
             <div className="mt-4">
@@ -46,7 +46,7 @@ const ProfileForm = () => {
                 name="password" 
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-80 mx-auto p-1.5" 
                 placeholder="Password" 
-                value="********"
+                value="test3"
               />
             </div>
             <button type="button" className="text-white bg-violet-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm block w-80 mx-auto py-2.5 text-center mt-4" style={{ backgroundColor: '#48398F' }}>Save</button>
