@@ -13,7 +13,7 @@ const LoginForm = () => {
   const submitLogin =  async (e) => {
     e.preventDefault()
     try {
-      const response =  await axios.post('http://localhost:3000/user/LogIn', loginData, {withCredentials: true})
+      const response =  await axios.post('http://pro-scheduler-backend.vercel.app/user/LogIn', loginData, {withCredentials: true})
       setLoginData({
         email : '',
         password : ''
