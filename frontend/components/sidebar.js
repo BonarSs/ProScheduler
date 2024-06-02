@@ -19,7 +19,7 @@ export default function SideBar({loadProject, Togglecreateform, dataProject}) {
    
     const fetchUserProjects =  async () => {
         try {
-            const response = await axios.get('http://pro-scheduler-backend.vercel.app/project', {withCredentials: true});
+            const response = await axios.get('https://pro-scheduler-backend.vercel.app/project', {withCredentials: true});
             setProjectData(response.data);    
         } catch (error) {
             console.error('Error fetching data:', error);
