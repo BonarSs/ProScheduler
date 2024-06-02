@@ -103,7 +103,7 @@ router.post('/SignUp', async (req,res) => {
         const savedUser = await newUser.save()
         const token = GenerateJWT(savedUser)
 
-        return res.cookie('token', token,{maxAge: 360000000 , httpOnly: true, secure: true}).json({
+        return res.cookie('token', token,{maxAge: 360000000 , httpOnly: true, secure: true, sameSite: 'None'}).json({
             username : savedUser.username,
             email: savedUser.email,
             id: savedUser._id
@@ -128,7 +128,7 @@ router.post('/LogIn', async (req,res) => {
    
         if(user && await user.comparePassword(password)){
             const token = GenerateJWT(user)
-            return res.cookie('token', token, {maxAge: 360000000 , httpOnly: true, secure: true}).json({
+            return res.cookie('token', token, {maxAge: 360000000 , httpOnly: true, secure: true, sameSite: 'None'}).json({
                 username: user.username,
                 email: user.email,
                 id: user._id
