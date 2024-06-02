@@ -26,7 +26,7 @@ const roleMemberRouter = require('./routers/roleMemberRouter')
 // Add Middleware Cors
 // app.options('*', cors())
 app.use(cors({
-    origin: 'http://localhost:3001',
+    origin: 'https://pro-scheduler--rose.vercel.app',
     credentials: true
   }));  
 app.use(cookieParser())
