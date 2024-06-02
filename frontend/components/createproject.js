@@ -23,7 +23,7 @@ export default function CreateProjectForm({setResponse, closoForm, isCreating}) 
     e.preventDefault()
 
     try {
-      const response = await axios.post('http://pro-scheduler-backend.vercel.app/project/create',createProject, {withCredentials: true})
+      const response = await axios.post('https://pro-scheduler-backend.vercel.app/project/create',createProject, {withCredentials: true})
       setResponse(response)
 
     } catch (error) {
