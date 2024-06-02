@@ -16,6 +16,27 @@ router.post('/CRUD', async (req,res) => {
     }
 })
 
+router.post('/insertMany', async (req,res) => {
+    try {
+        const inputArray = req.body;
+
+        // Ensure input is an array
+        if (!Array.isArray(inputArray)) {
+            return res.status(400).json({ error: "Input must be an array" });
+        }
+
+        const savedDocuments = await taskModel.insertMany(inputArray);
+
+        return res.status(201).json(savedDocuments)
+    } catch (error) {
+        console.error("Error creating data:", error);
+        return res.status(500).json({ 
+            error: "Server Error!",
+            details_error : error
+        })
+    }
+})
+
 router.get('/CRUD', async (req,res) => {
     try {
         const results = await taskModel.find()

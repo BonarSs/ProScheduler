@@ -5,10 +5,23 @@ const projectSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    date_end: Date,
+    date_start: {
+        type : Date,
+        required : true
+    },
+    date_end: {
+        type : Date,
+        required : true
+    },
     description: String,
-    team_num: Number,
-    category_id: Number,
+    team_num: {
+        type : Number,
+        required : true
+    },
+    category: {
+        type : String,
+        required : true
+    },
     task_id: [
         {
         type: mongoose.Schema.Types.ObjectId,
@@ -21,7 +34,10 @@ const projectSchema = mongoose.Schema({
             ref: 'user'
         }
     ],
-    isCompleted : Boolean
+    isCompleted : {
+        type: Boolean,
+        default: false
+    }
 }, {timestamps: true})
 
 module.exports = mongoose.model ('project', projectSchema)      

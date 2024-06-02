@@ -11,7 +11,7 @@ import axios from "axios";
 
 
 
-export default function SideBar({loadProject, Togglecreateform}) {
+export default function SideBar({loadProject, Togglecreateform, dataProject}) {
     
     const [toggleCollapse, setToggleCollapse] = useState(true)
     const [project_data, setProjectData] = useState([])
@@ -28,10 +28,10 @@ export default function SideBar({loadProject, Togglecreateform}) {
 
     useEffect(() => {
         fetchUserProjects();
-    },[])
+    },[dataProject])
     
     const wrapperSideBar = classNames(
-        "flex flex-col  h-screen bg-white border-r border-gray-200 shadow-2xl",
+        "flex flex-col  h-screen bg-white border-r border-gray-200 shadow-2xl z-10",
         {
             "w-64": toggleCollapse,
             "w-[90px]": !toggleCollapse

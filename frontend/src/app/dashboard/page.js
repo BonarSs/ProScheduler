@@ -5,54 +5,57 @@ import SideBar from '../../../components/sidebar';
 import { useState } from 'react';
 import axios from 'axios';
 import CreateProjectForm from '../../../components/createproject';
+import TaskCard from '../../../components/taskcard';
+import RoleCard from '../../../components/roleCard';
+import NoProjectUI from '../../../components/noproject';
 
 export default function Dashboard() {
   const [dataProject, setDataProject] = useState(null);
+  const [isCreating, setIsCreating] = useState(false)
 
   const loadDataProject = async (project_id) => {
     try {
       const response = await axios.get(`http://localhost:3000/project/${project_id}`, { withCredentials: true });
       setDataProject(response.data);
+      console.log(dataProject)
     } catch (error) {
       console.error('Error fetching data:', error);
     }
   };
 
-
-  const [iscreatingproject, setIsCreatingProject] = useState(false)
-
-  //Toggle createform
-  const Togglecreateform = () =>{
-    setIsCreatingProject(!iscreatingproject)
+  //HandleFunction for AI Response
+  const handleCreateButton = () =>{
+    setIsCreating(!isCreating)
   }
 
+  const closeForm = (e) => {
+    if (e.currentTarget === e.target){
+      setIsCreating(false)
+    }
+  }
 
-  //Submit createform
-  const submitcreateform = async (e) =>{
-    e.preventDefault()
-    try {
-      console.log(createProject)
-      const response = await axios.post('http://127.0.0.1:5000/expert-systems/generate-timeline', createProject, {headers: {'Content-Type': 'application/json'}}, {withCredentials: false})
-      setResponseAI(response)
-      console.log(responseAI)
-      setIsCreatingProject(false)
+  const submitAI = async (response) => {
+      try {
+        await setDataProject(response.data)
+        handleCreateButton()
+        console.log(dataProject)
+      } catch (error) { 
+        console.error(error)
+      }
+  }  
 
-    } catch (error) {
-      console.error(error)
-    } 
-  } 
-
-  //state response AI
-  const [responseAI,setResponseAI] = useState({})
   return (
     <div className="min-h-screen flex flex-col overflow-hidden bg-[#F5F3FF]">
       <Head>
         <title>Dashboard</title>
       </Head>
 
+      <CreateProjectForm isCreating={isCreating} closoForm={closeForm} setResponse={submitAI}/>
       <Navbar />
-      <div className="flex flex-1 mt-16 overflow-hidden"> {/* Tambahkan margin-top untuk memberi ruang di bawah navbar */}
-        <SideBar loadProject={loadDataProject} />
+      <div className="flex flex-1 mt-16"> {/* Tambahkan margin-top untuk memberi ruang di bawah navbar */}
+        <SideBar loadProject={loadDataProject} Togglecreateform={handleCreateButton} dataProject={dataProject} />
+        {dataProject ? 
+        (
         <main className="flex-1 p-4 overflow-auto">
           <div className="flex justify-between items-center mb-4">
             <select className="border p-2 rounded">
@@ -72,25 +75,8 @@ export default function Dashboard() {
           </div>
           <div className="flex space-x-10 mb-4">
             <div className="flex flex-col space-y-2">
-              <div className="flex items-center space-x-2 bg-white p-2 rounded-full shadow">
-                <div className="w-9 h-9 bg-purple-500 rounded-full"></div>
-              </div>
-              <div className="flex items-center space-x-2 bg-white p-2 rounded-full shadow">
-                <div className="w-9 h-9 bg-blue-500 rounded-full"></div>
-                <span className="text-sm font-semibold opacity-0">UI/UX Designer 1</span>
-              </div>
-              <div className="flex items-center space-x-2 bg-white p-2 rounded-full shadow">
-                <div className="w-9 h-9 bg-pink-500 rounded-full"></div>
-                <span className="text-sm font-semibold opacity-0">Front end Programmer</span>
-              </div>
-              <div className="flex items-center space-x-2 bg-white p-2 rounded-full shadow">
-                <div className="w-9 h-9 bg-cyan-500 rounded-full"></div>
-                <span className="text-sm font-semibold opacity-0">UI/UX Designer 2</span>
-              </div>
-              <div className="flex items-center space-x-2 bg-white p-2 rounded-full shadow">
-                <div className="w-9 h-9 bg-purple-300 rounded-full"></div>
-                <span className="text-sm font-semibold opacity-0">Back end Programmer</span>
-              </div>
+              {dataProject.task_id ?
+              (dataProject.task_id.map(item => <RoleCard role={item.assigned_to} />)) : "" }
             </div>
             <div className="flex-1">
               <div className="grid grid-cols-7 gap-4 mb-4">
@@ -105,28 +91,18 @@ export default function Dashboard() {
           </div>
           <div className="mb-4 mt-2">
             <div className="text-lg font-semibold mb-4">TASK DISTRIBUTION CARDS</div>
-            <div className="grid grid-cols-4 gap-4">
-              <div className="bg-white rounded-lg shadow-lg p-4">
-                <div className="text-sm font-semibold">Event Coordinator</div>
-                <div className="text-xs">Task: Venue Booking</div>
-                <div className="text-xs">Start Date: 2024-04-04</div>
-                <div className="text-xs">End Date: 2024-04-11</div>
-              </div>
-              <div className="bg-white rounded-lg shadow-lg p-4"></div>
-              <div className="bg-white rounded-lg shadow-lg p-4"></div>
-              <div className="bg-white rounded-lg shadow-lg p-4"></div>
-              <div className="bg-white rounded-lg shadow-lg p-4">
-                <div className="text-sm font-semibold">Event Coordinator</div>
-                <div className="text-xs">Task: Venue Booking</div>
-                <div className="text-xs">Start Date: 2024-04-04</div>
-                <div className="text-xs">End Date: 2024-04-11</div>
-              </div>
-              <div className="bg-white rounded-lg shadow-lg p-4"></div>
-              <div className="bg-white rounded-lg shadow-lg p-4"></div>
-              <div className="bg-white rounded-lg shadow-lg p-4"></div>
+            <div className="grid grid-cols-4 gap-4">           
+              {dataProject.task_id ?
+              (dataProject.task_id.map(item => <TaskCard role={item.assigned_to} taskname={item.task} stardate={item.start_date ? item.start_date.substring(0,10) : null} enddate={item.end_date ? item.end_date.substring(0,10) : null} />)) : "" }
             </div>
           </div>
         </main>
+        ) : 
+        (
+        <div className='flex items-center justify-center w-full'>
+        <NoProjectUI />
+        </div>
+        )}
       </div>
     </div>
   );
