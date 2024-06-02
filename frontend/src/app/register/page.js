@@ -19,7 +19,7 @@ const RegisterForm = () => {
   const submitRegister = async (e) => {
     e.preventDefault()
     try {
-      const response =  await axios.post('http://pro-scheduler-backend.vercel.app/user/SignUp', registerData, {withCredentials: true})
+      const response =  await axios.post('https://pro-scheduler-backend.vercel.app/user/SignUp', registerData, {withCredentials: true})
       setRegisterData({
         username: '',
         email : '',
