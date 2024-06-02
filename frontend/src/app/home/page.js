@@ -11,7 +11,7 @@ export default function HomePage() {
     
     const loadDataProject = async (project_id) => {
         try {
-            const response = await axios.get(`http://pro-scheduler-backend.vercel.app/project/${project_id}`, { withCredentials: true });
+            const response = await axios.get(`https://pro-scheduler-backend.vercel.app/project/${project_id}`, { withCredentials: true });
             setDataProject(response.data);
         } catch (error) {
             console.error('Error fetching data:', error);
