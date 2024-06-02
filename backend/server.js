@@ -41,4 +41,6 @@ app.use('/status', statusRouter)
 app.use('/rolemember', roleMemberRouter)
 
 
-app.listen(3000, console.log('server started'))
+// app.listen(3000, console.log('server started'))
+
+export default app;
