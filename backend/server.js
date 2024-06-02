@@ -43,4 +43,4 @@ app.use('/rolemember', roleMemberRouter)
 
 // app.listen(3000, console.log('server started'))
 
-export default app;
+module.exports = app;
