@@ -60,7 +60,7 @@ router.post('/create',VerifyJWT, async (req,res) => {
             end_date: input_value.date_end
         }
 
-        const AIResponse = await axios.post('http://127.0.0.1:5000/expert-systems/generate-timeline', inputAI)
+        const AIResponse = await axios.post('https://pro-scheduler.vercel.app//expert-systems/generate-timeline', inputAI)
         const inputTask = AIResponse.data
 
         const responsePostTask = await axios.post("http://localhost:3000/task/insertMany", inputTask)
