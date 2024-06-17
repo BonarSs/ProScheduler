@@ -11,7 +11,7 @@ const Navbar = () => {
   const handleLogout =  async (e) => {
     e.preventDefault()
     try {
-      const response =  await axios.post('http://localhost:3000/user/LogOut',{}, {withCredentials: true})
+      const response =  await axios.post('https://pro-scheduler-backend.vercel.app/user/LogOut',{}, {withCredentials: true})
       console.log(response.data)
       router.push("/knowmore")
 
